@@ -178,7 +178,7 @@
                 <div class="invcomp_value_default" ng-class="model.map_color">
                     Value: {{ (model.currPattern.type == 'sr') ? model.regionHover.pvalue : model.regionHover.pvalue.toExponential(3) || 'no data' }}
                     <br />
-                    Rank:&nbsp; {{ model.regionHover.pct_value.toFixed(3) || 'no data' }}
+                    Rank:&nbsp; {{ model.regionHover.pct_value || 'no data' }}
                 </div>
             </div>
 
