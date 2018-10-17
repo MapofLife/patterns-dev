@@ -10,13 +10,46 @@
   <div class="row">
     <div class="col-md-12">
 
+      <h3>Species Richness</h3>
       <p>
-        The maps show species richness patterns for a range of 'species group' – 'region' combinations for which data in Map of Life is data supports this calculation. For data sources, see <em>Expert range maps</em> in <a href="https://mol.org/datasets">MOL Datasets</a>        page. The spatial resolution (pixel size) is the finest that is scientifically sound for this data type (see <a href="http://www.pnas.org/content/104/33/13384.full" target="_blank">Hurlbert &amp; Jetz, PNAS 2007</a>) – higher resolutions would
-        overestimate actual richness values.
+        The maps show species richness patterns for a range of 'species group' – 'region' combinations for which data in Map of Life is data supports this calculation. 
+        For data sources, see <em>Expert range maps</em> in <a href="https://mol.org/datasets">MOL Datasets</a> page. 
+        The spatial resolution (pixel size) is the finest that is scientifically sound for this data type 
+        (see <a href="http://www.pnas.org/content/104/33/13384.full" target="_blank">Hurlbert &amp; Jetz, PNAS 2007</a>) – 
+        higher resolutions would overestimate actual richness values.
       </p>
 
       <p>
         Check back as we are adding more species groups and regions and in the future higher-resolution patterns based on model-driven range predictions.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h3>Species Rarity</h3>
+      <p>
+        <strong>"Total range-size rarity"</strong> (also called "rarity score", "endemism richness", or "weighted endemism"). 
+        Total range-size rarity is given as the count of species present in a region, weighted by their respective range proportion 
+        inside the region. Also described as: "Weighted endemism in a cell is the proportion of the distribution of a species that is found 
+        in a cell (summed across all species)" (this from our paper Pollock et al 2017, Nature). 
+        Note that this is what "Species endemism" refers to in https://mol.org/patterns/facets.
+      </p>
+
+      <p>
+        <figure class="attachment attachment--preview">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAABICAYAAAC9bQZsAAAEwElEQVRoQ91bPU/cQBB9/hNclQRdGki4PjSIQ6RIFKWChIICCQkKQneRIiQoKBBSQCmA5iQkyuNyVaSkCeGr4QdwKCjFKREV/ImN7L31t71je+3bu+vAa3vfzrx5M7tjAwP6MwYUF0jAGHtgv3aaWDy9B8rTONufAJpfsXp0jTZKmNlYwe64QXpWUQtJmkznuMkOHk9iB+cY3gTWFoA/5t8vgPqHPWwNz+Hfx+ekZ2kFTEymc7zPqkf3GFtYxff3Q4ZpyYEAdvJ5nS3+5a5YNgyD3V2wN0snQBdoUdagvIfsPmHWYVdNNrz5gLX6CpYf9SHHzBUS1hnZ2LQDhWXB0woOf8xi2uhXYCHWcVxzFD93fuNljbsoxVXyHkOeBA8cQx7riGCCcgWHn2YxrZE7koHlvcKqn983wNjdDatvN/BtgkuNbCGkA2QPKOK6mSDwLAe2hsreqzUw00q17QZuUcEIrtHqADOuqBwHTltgXDfPgflJLI8PGSJQkYFxkb2WWTb79als+WRiYOaMudA6c6euShxaqyJoNrF4dM+H9QKYnS51xFRLytIke9F6AcydMpmRx/p1666smYTt6r0CZmKxM4kuNlGeZCEYYzes9rqBVi+B5cE3VTVbquDhtoi9wvY/9cjeMwML5VtGN8riyuJeJcDC+KZCArIAVAYsTwlICpDvku3B0tqpOZzVnknrvtiUKsA3RRJABWYlv5cPaHe6Iu+6caxcwsh89LafNFf0p1wqJIAKLMs4KTAd+UYBTAIW5JseEhAHkARMVwlQAswC5ytxdOYb2WJidbwljroqgMKbJGMSAwvwrWAJoIJLDKxf+JYKWEACNLRaamBul9QxiKQHJiKkAms9ebXOqNyhjksFTJy8tKGvUCcG5nbBXpcyygTaEzQ0KD6VAbMzDwW8onIl7TiyKzq1mb7ZhnsRSMB0D+1hViUBs/cbC+CVf7vdPemxcgVvu4cUMheVAis6tFvesbOHrVPvWZg4+NsiHiUR9zyK5RW3WvCd9iITglcsMOEWRaZMDp+D4q8EmNMR4HTiyPxaxXV78iF8TnLAEWqxonnlXhAxeb+XOJak0SIALI+UiVsfpDO3sB3fzt0NO9huoNUxWwjfYXc8RddAHryKCgZ+1w3uhokRJcwsVLHyTr4DLO7wWCyPlCkuGASBdc/SXFHP30oYxmP7HXDigQ3M4RXNh6mBIglfw4KDk8pFl0hizK2rvdAClgev+N4I76YxRRWE2i2MX0mDhscV/Ue0VGskGkcQ1SguCt6H1X/O3L0WNQrr85AAi3M5mX75O1/NBTfiks5EFpENliTQnasmq1qNNBWs1Wc9HatxGUfUGbc0CZbNV8X1oNd4A5jnnM7XGymuwddjpQWwLIsT1Zfs1THRbu7SgywvLeLesM5Xi2OePK3bbOLWg7STs7+uQDXXjw28fcnneFrjjdfKXZE3h53jy+U12qZ+5Vx1R/Ul28Ci9CCpxdjVBathtOefh3gsFqYHSYGJ8apajdK+38kVI75ToehcWEagETCeWfv1IO2K6QNM8Xcq2gCL0oO+d8UoPUjtimZr+VIDrfI0DvcnCv+oJxjuM36n4hSW/iUp9ixNuUCntbDq+wYW2H+GUUNpjl2bxwAAAABJRU5ErkJggg==" width="54" height="72">
+        </figure>
+      </p>
+
+      <p>&nbsp;</p>
+
+      <p>
+        <strong>"Average range-size rarity"</strong>, also called "range size rarity" or "species rarity", is simply that value divided by the number of species in a cell:
+      </p>
+
+      <p>
+        <figure class="attachment attachment--preview">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAABHCAYAAABcW/plAAAE8klEQVR4Xu1bMU8UQRT+9kfIVSqeDQjXiwXxCBYaYwVIQUFCogXQnYkhkYKCkAixAJpLSCzPk8qIDYhITLA/iMZio6ECf8SY2b3Z3dmd2Z29G3bvvLkK7mZn5n3zvjffezNrwXw8BCyDhY/Afw0GOT8j1bUaPowuYu9pX6KtiQ261XPsd3Wy+LaBUwDDsz0KBvWGyloNP1HCABrYtYGJ5RVsjFiJC5/YoJs8g5BLUl04Ambu4/lIn2W/2yLltxe9CUZ44QwYAUQMGAYMcWQznmE8w3hG4q6fmibk/Ct5/OzAUWrqnxJ2Pk1i3LIsurd/Xq9j7vACKI7jy9YoUH8PV/0VMLE8ryR41MdWb5kaDNr1wetXZO6Q/lXAUnUez69H1Zpr9Cbcdj4YVPZu37iPdRyhfwVYmgV+0f/vAtWFTaz2T+PPi6FcxF1LYBByRiqPatildo7JJ++388Fg68QGZnmAqwbzA4NbvLFpfKncQdGKl+TeijFjqHFxWt71oigYzve/XZrQQRn9oJgkqTt/fEsnQTu+xKl9EWk4XCxgYEZOWw8MbyVteNwXIUlO6oTSgcUMOqLIC9x2l1La6TJeZz8cl10DGk7/qmmvA0YzCA8EskOZB+mcvO6+IoFNJZiGJyHyAp82g9hf/4EHFZc+ug3Q2V9kctxWGxNMg5Nw400fRx0vBhVL2Hk5iXHBDqXTEB19CVdKNZjqmEAn9SEEQzWYdpIhOuYi5bAfTKPbqI6B2+3j5sNXpN0+ws8ngqG6q3jeBF9r6J7sVfcnoUlTkSoGUFdruM/81CCyvHwH5UylfHQ3YTLazp4eDgj1I7w5buCUij/FxfDlQNR3hoslPGkWiJM8KwJG2uSGDuDvPu0BSE6+kgoGUyd5DkXXN7F6yItFdoi0qnhcwCtQls4rrkgQ6XBukrQKcb+3kuS53hHNuj3d1CwvxAk/QW4Sv7oi6S2bfJz7MjBESWFaMHwpEJ17S2DIkFWR3ix4QvHkKslrUoMR49GeRFDwdscz2ANJ26hzdPeM1j14d9SdoaYGo5lghufve4y8aBVcGIsr7CQtmfc7746i3IQ2zYomoqBvn5+R7bUadm1aepzCxojCKbzKhKMY8WDwGeoRblfc+qgytqGGngcWx7GzNRrbF5c6cP0UMDFbxvxUcoWLPdbyhIPj6spQ5cVpeVD3PDuwW4RLkKJFESlmLWC06gE6nhMFyLhaLRtTpJi7HgxRvEgbOLXSRMcKt9qHTBKwWCjSMTLF3NWeEUeHJH0hUsxdDYZ9Uidlp4BdwlJ1kjv8ilOeMh3TtWAEK/kuxUJCMHgwFqrDyhRz14LRaozxFXf0TKcnwZAp5p4EQ6aYexIMmWLuSTBk8caAEUDGgGHAEBPFuoqTqXY0QJ7PGpoYmkhokqdbdtrYhiaGJoYmiaw0NDE0MTQxNElEwNCkQ2giehOZvZhLX8hFsYSll3ylO83qttM2092EVpi2QQ+Dr2Gfvn5BbwbOXGDx2xA2K3dw6/t7PF5p4FThLkU7RndUccc/9C1guL+MvebLOd5ZR0+B4b0Kxp+uq16auQqvoH1mShNmhMzoVm4a6gQmFzBco8G9mBN3SU2nwXF9ZQ6GzGjRpZOsQGDj5ABG8yp26F5m3vEil5ghMzr4/cd7f1FdOwMy1huZe4YsSFKaVBdqoFebqfDK4+2lf9jyK0wYPkUQAAAAAElFTkSuQmCC" width="67" height="71">
+        </figure>
       </p>
 
       <hr class="section-divider" />
