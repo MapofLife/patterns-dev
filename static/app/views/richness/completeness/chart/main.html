@@ -81,7 +81,7 @@
             <select
                class="form-control selectpicker"
                ng-model="model.selectedMapTaxa"
-               ng-options="taxa.title group by taxa.groupby for taxa in model.availableTaxa track by taxa.taxa"></select>
+               ng-options="taxa.title group by taxa.groupby for taxa in model.availableTaxa | removeWith:{ taxa: 'reptiles' } track by taxa.taxa"></select>
           </div>
         </div>
         <div class="form-group" style="margin-top: 8px;">

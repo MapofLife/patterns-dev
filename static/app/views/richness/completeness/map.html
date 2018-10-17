@@ -47,6 +47,10 @@
         padding: 10px 0;
         font-size: large;
     }
+    .invcomp_value_default {
+        padding: 10px;
+        text-align: left;
+    }
 
     .map-color-101 {background-color: rgba(255, 0, 0, 0.5) !important;color: #fff !important;}
     .map-color-100 {background-color: rgba(255, 11, 0, 0.5) !important;color: #fff !important;}
@@ -171,8 +175,10 @@
 
             <div class="row-layout" ng-show="model.regionHover.pvalue != undefined">
                 <div>{{ model.currPattern.name }}</div>
-                <div class="invcomp_value" ng-class="model.map_color">
-                    {{ model.regionHover.pvalue || '0' }}
+                <div class="invcomp_value_default" ng-class="model.map_color">
+                    Value: {{ (model.currPattern.type == 'sr') ? model.regionHover.pvalue : model.regionHover.pvalue.toExponential(3) || 'no data' }}
+                    <br />
+                    Rank:&nbsp; {{ model.regionHover.pct_value.toFixed(3) || 'no data' }}
                 </div>
             </div>
 
