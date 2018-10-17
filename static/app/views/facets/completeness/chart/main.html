@@ -1,0 +1,117 @@
+<style>
+  .close {
+    padding: 10px;
+  }
+  
+  .completeness-charts {
+    /*width:350px;*/
+    padding: 0 6px 8px;
+  }
+  
+  .completeness-charts h3,
+  .completeness-charts h4 {
+    margin: 8px 0;
+    text-align: left;
+    padding: 0 6px 8px;
+  }
+  
+  .chart-view {
+    height: 200px;
+  }
+  
+  .chart-holder {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+  }
+  
+  .modal-body .row {
+    margin: 0 0 20px 0;
+  }
+  
+  .region-data-holder {
+    position: relative;
+    min-height: 400px;
+    height: 100%;
+  }
+  
+  .metric {
+    position: relative;
+    text-align: center;
+  }
+  
+  .metric-value {
+    position: relative;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(149, 165, 166, 0.5);
+    color: #555;
+    text-align: center;
+    padding-top: 28px;
+    margin: 0 auto;
+  }
+  
+  .metric-value.slideup {
+    position: relative;
+  }
+  
+  .metric-value-avi {
+    background-color: rgba(149, 165, 166, 0.5);
+    color: #555;
+  }
+  
+  .metric-value-tsc {
+    background-color: rgba(149, 165, 166, 0.5);
+    color: #555;
+  }
+  
+  .metric-value-tgc {
+    background-color: rgba(149, 165, 166, 0.5);
+    color: #555;
+  }
+  
+  .metric-value-rank {
+    background-color: rgba(149, 165, 166, 0.5);
+    color: #555;
+  }
+</style>
+
+
+<div class="side-wrapper">
+  <!-- global metrics -->
+
+  <div class="info-boxes">
+
+    <div ng-show="!model.availableTaxa && (model.alerts.length == 0 )">
+      <h4><i class="fa fa-refresh fa-spin fa-fw"></i> Loading available species groups...</h4>
+    </div>
+
+
+    <!-- system messages -->
+    <div style="text-align: left">
+      <uib-alert ng-repeat="alert in model.alerts" type="{{alert.type}}" ng-bind-html="alert.msg"></uib-alert>
+    </div>
+    <!-- end system messages -->
+
+
+    <div class="animate-if" ng-if="model.availableTaxa">
+
+      <div class="form-horizontal taxa-info">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">Species groups: </div>
+            <select class="form-control selectpicker" ng-model="model.selectedMapTaxa" ng-options="taxa.title group by taxa.groupby for taxa in model.availableTaxa track by taxa.taxa"></select>
+          </div>
+        </div>
+      </div>
+      <hr />
+
+    </div>
+    <!-- end-if model.availableTaxa -->
+
+  </div>
+
+  <!-- end global metrics -->
+
+</div>

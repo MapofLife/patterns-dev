@@ -1,0 +1,157 @@
+<style type="text/css">
+  .info-boxes-small {
+    min-width: 450px;
+    padding: 10px 0;
+  }
+  
+  .info-boxes-small select.form-control {
+    max-width: 100%;
+  }
+  
+  .google-map {
+    display: flex;
+    display: -webkit-flex;
+    flex: 1;
+    -webkit-flex: 1;
+  }
+  
+  .angular-google-map {
+    display: flex;
+    display: -webkit-flex;
+    flex: 1;
+    -webkit-flex: 1;
+  }
+  
+  .angular-google-map-container {
+    display: flex;
+    display: -webkit-flex;
+    flex: 1;
+    -webkit-flex: 1;
+  }
+  
+  .map-link {
+    margin: 5px;
+    background-color: none;
+  }
+  
+  a.map-link:hover {
+    background-color: inherit;
+  }
+  
+  .map-link img {
+    height: 26px;
+  }
+  
+  .map-control-item {
+    margin: 5px 10px;
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.298039) 0 1px 4px -1px;
+    border-radius: 2px;
+    color: rgb(86, 86, 86);
+    background: white;
+  }
+  
+  .btn-default.active {
+    background-image: linear-gradient(to bottom, #8cbf44 0, #7bae33 100%);
+  }
+  
+  .row-layout {
+    width: 100%;
+  }
+  
+  .row-layout .row-item-single {
+    margin: 5px 15px;
+    text-align: left;
+  }
+  
+  .invcomp_value {
+    padding: 10px 0;
+    margin: 5px 15px;
+    font-size: large;
+  }
+</style>
+<ui-gmap-google-map class="google-map" center="model.map.center" zoom="model.map.zoom" bounds="model.map.bounds" events="model.map.events" options="model.map.options" control="model.map.control" pan="true">
+  <ui-gmap-map-type options="mt" show="mt.show" refresh="mt.refresh" ng-repeat="mt in model.map.overlayMapTypes"></ui-gmap-map-type>
+  <ui-gmap-map-control position="bottom-left" index="10000">
+    <a class="map-link" href="https://mol.org/" target="_blank">
+      <img src="static/app/img/logo.png">
+    </a>
+  </ui-gmap-map-control>
+
+  <ui-gmap-map-control position="top-right" index="10000">
+    <div class="info-boxes-small animate-if"> <!--  ng-if="model.selectedMapTaxa" -->
+
+      <div class="row-layout">
+
+        <div class="col-xs-4">
+          <select class="form-control selectpicker" ng-model="model.selectedMapTaxa" ng-options="t.title for t in model.availableTaxa track by t.taxa"></select>
+        </div>
+
+        <div class="col-xs-8">
+          <select class="form-control selectpicker" ng-model="model.selectedPattern" ng-options="p.title group by p.group disable when (p.disableTaxa == model.selectedMapTaxa.taxa) for p in model.availablePatterns track by p.code"></select>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-8">
+
+          <div class="row-layout">
+            <div>&nbsp;</div>
+            <div class="row-item-single">
+              <label>
+                <input type="checkbox" id="chkProtection" ng-model="model.protectionLevelOpts.enabled" />
+                &nbsp; {{ (model.protectionLevelOpts.enabled)? 'Cell area protected: ' : 'Display cell area protected' }}
+              </label>
+              <span ng-show="model.protectionLevelOpts.enabled">
+                {{ (model.protectionLevel == 0) ? '&gt;' : '&ge;' }} {{ model.protectionLevelOpts.display }}
+              </span>
+              <slider ng-show="model.protectionLevelOpts.enabled" ng-model="model.protectionLevelOpts.value" min="model.protectionLevelOpts.min" step="model.protectionLevelOpts.step" tooltip="hide" max="model.protectionLevelOpts.max" value="model.protectionLevelOpts.value"
+                ng-disabled="!model.protectionLevelOpts.enabled" formatter="formatterFn(value)" on-slide="slideDelegate(value, 'slide')" on-stop-slide="slideDelegate(value, 'stop')"></slider>
+            </div>
+          </div>
+
+          <div class="row-layout" ng-show="model.protectionLevelOpts.enabled">
+            <div>&nbsp;</div>
+            <div class="row-item-single">
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon">Reserve type:
+                    <i class="fa fa-question-circle" aria-hidden="true" tooltip-placement="bottom" uib-tooltip-html="model.help.reserves"></i>
+                  </div>
+                  <div class="btn-group row-layout">
+                    <button type="button" class="btn btn-default btn-sm col-sm-6" ng-model="model.selectedParkType" uib-btn-radio="model.availableParkTypes[0]">{{ model.availableParkTypes[0].title }}</button>
+                    <button type="button" class="btn btn-default btn-sm col-sm-6" ng-model="model.selectedParkType" uib-btn-radio="model.availableParkTypes[1]">{{ model.availableParkTypes[1].title }}</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4" ng-show="model.protectionLevelOpts.enabled">
+          <a href="https://protectedplanet.net/" target="_blank"><img style="width: 100px; margin-top: 40px;" src="static/app/img/wcmc.png" /></a>
+        </div>
+
+      </div>
+
+      <div class="row-layout" ng-show="model.regionHover == undefined">
+        <div>&nbsp;</div>
+        <div class="invcomp_value" ng-class="model.map_color">
+          Hover over the map
+        </div>
+      </div>
+
+      <div class="row-layout" ng-show="model.regionHover.pvalue != undefined">
+        <div>&nbsp;</div>
+        <div class="invcomp_value" ng-class="model.map_color">
+          {{ model.regionHover.pvalue.toFixed(2) || 'no data' }}
+        </div>
+      </div>
+
+    </div>
+  </ui-gmap-map-control>
+</ui-gmap-google-map>

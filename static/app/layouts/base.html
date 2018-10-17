@@ -1,0 +1,5 @@
+<!-- state: {{ $state.params.embed}} -->
+<div ng-show="!$state.params.embed||$state.params.header" ng-include="'static/app/partials/header-thin.html'"></div>
+<div ng-show="!$state.params.embed||$state.params.subnav" ui-view="nav"></div>
+<div class="layouts-base main" ui-view></div>
+<div ng-show="!$state.params.embed||$state.params.footer" ng-include="'static/app/partials/thin-footer.html'"></div>
