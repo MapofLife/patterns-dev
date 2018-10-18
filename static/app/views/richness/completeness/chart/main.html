@@ -104,7 +104,9 @@
 
      <!-- references -->
      <div id="refernces-box" class="animate-if" ng-if="model.availableTaxa">
-      <p>For data sources, see <em>Expert range maps</em> in <a href="https://mol.org/datasets/?dt=range">MOL Datasets</a> page.</p>
+      <!-- <p ng-if="model.selectedMapTaxa.taxa != 'fishes'">For data sources, see <em>Expert range maps</em> in <a href="https://mol.org/datasets/?dt=range">MOL Datasets</a> page.</p>
+      <p ng-if="model.selectedMapTaxa.taxa == 'fishes'"><a target="blank" href="http://coru.oceans.ubc.ca/">Ocean Research Unit</a> (CORU). Institute for the Oceans and Fisheries. University of British Columbia.</p> -->
+      <p ng-bind-html="(model.references | where:{taxa: model.selectedMapTaxa.taxa} | first).source || model.references.default"></p>
      </div>
 
   </div>
